@@ -3,8 +3,12 @@
 $unzipLocation   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 $PackageParameters = Get-PackageParameters -Parameters "/Channel:'stable'"
-# if ($PackageParameters['Channel'] -or [String]::IsNullOrWhiteSpace($PackageParameters['Channel'])) { $PackageParameters['Channel'] = 'stable' }
-
+if (!$PackageParameters['Channel']) { 
+  $PackageParameters['Channel'] = 'stable'
+} elseif ($PackageParameters['Channel'] -notin 'stable','beta','dev','canary') {
+  Write-Warning("Parameter 'Channel' was not one of 'stable|beta|dev|canary'. Defaulting to 'stable'")
+  $PackageParameters['Channel'] = 'stable'
+}
 $channelIds = [PSCustomObject]@{
   stable ="channel-0"
   beta   ="channel-1"
