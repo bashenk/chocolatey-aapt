@@ -1,8 +1,8 @@
-# chocolatey-aapt2
+# chocolatey-aapt
 
 AAPT (Android Asset Packaging Tool) is a build tool that Android Studio and Android Gradle Plugin use to compile and package your app’s resources. AAPT parses, indexes, and compiles the resources into a binary format that is optimized for the Android platform.
 
-See <https://developer.android.com/studio/command-line/aapt2>
+See <https://developer.android.com/studio/command-line/aapt2> or <https://developer.android.com/studio/releases/build-tools>
 
 ## Please Note
 
